@@ -1,11 +1,13 @@
 require 'sinatra'
 
 get "/" do
+  @task = TaskDatabase.new
   erb :index
 end
 
 get "/:task" do
-  @task = params[:task].gsub("-", " ").capitalize
+  @new_task = params[:task]
+  @task = TaskDatabase.new
   erb :task
 end
 
