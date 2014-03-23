@@ -1,11 +1,7 @@
 class TaskDatabase
-  attr_reader :task_list
+  TASKS = []
 
-  def initialize
-    @task_list = []
-  end
-
-  def add(new_task)
-    @task_list << new_task
+  def self.add(new_task)
+    TASKS << (new_task)
   end
 end

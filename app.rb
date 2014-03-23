@@ -1,17 +1,18 @@
 require 'sinatra'
 
+require './lib/task_database'
+
+
 get "/" do
-  @task = TaskDatabase.new
   erb :index
 end
 
 get "/:task" do
-  @new_task = params[:task]
-  @task = TaskDatabase.new
+  TaskDatabase.add(params[:task])
   erb :task
 end
 
 post "/" do
-  @task = params[:task]
+  TaskDatabase.add(params[:task])
   erb :task
 end
