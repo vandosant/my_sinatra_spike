@@ -1,6 +1,10 @@
 <html>
   <body>
     <h2>My tasks</h2>
-    <%= TaskDatabase::TASKS %>
+    <ul>
+    <% @tasks.each do |task| %>
+      <li><%= task %></li>
+    <% end %>
+    </ul>
   </body>
 </html>

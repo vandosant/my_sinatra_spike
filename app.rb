@@ -9,10 +9,12 @@ end
 
 get "/:task" do
   TaskDatabase.add(params[:task])
+  @tasks = TaskDatabase::TASKS
   erb :task
 end
 
 post "/" do
   TaskDatabase.add(params[:task])
+  @tasks = TaskDatabase::TASKS
   erb :task
 end
