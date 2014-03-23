@@ -5,11 +5,17 @@
   <body>
     <h2>My tasks</h2>
       <ul>
-        <li>Get ruby</li>
+        <% if @tasks.length > 0 %>
+          <% @tasks.each do |task| %>
+          <li><%= task %></li>
+          <% end %>
+        <% else %>
+          <i><%= "Nothing yet! Create a new task below"%></i>
+        <% end %>
       </ul>
     <h2>Add a task</h2>
     <form action="/" method="POST">
-      <input type="text" name="task" value="enter a new task">
+      <input type="text" name="task">
       <button type="submit">Create task</button>
     </form>
   </body>

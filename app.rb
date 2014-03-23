@@ -4,6 +4,7 @@ require './lib/task_database'
 
 
 get "/" do
+  @tasks = TaskDatabase::TASKS
   erb :index
 end
 
