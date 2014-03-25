@@ -1,21 +1,22 @@
-require 'sinatra'
-
+require 'sinatra/base'
 require './lib/task_database'
 
 
-get "/" do
-  @tasks = TaskDatabase::TASKS
-  erb :index
-end
+class App < Sinatra:: Base
+  get "/" do
+    @tasks = TaskDatabase::TASKS
+    erb :index
+  end
 
-get "/:task" do
-  TaskDatabase.add(params[:task])
-  @tasks = TaskDatabase::TASKS
-  erb :task
-end
+  get "/:task" do
+    TaskDatabase.add(params[:task])
+    @tasks = TaskDatabase::TASKS
+    erb :task
+  end
 
-post "/" do
-  TaskDatabase.add(params[:task])
-  @tasks = TaskDatabase::TASKS
-  erb :task
+  post "/" do
+    TaskDatabase.add(params[:task])
+    @tasks = TaskDatabase::TASKS
+    erb :task
+  end
 end
